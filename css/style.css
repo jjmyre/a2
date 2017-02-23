@@ -1,0 +1,70 @@
+body {
+	background-color: #96772E;
+	font-family: 'LibHandDisRegular', sans-serif; 
+    font-weight: normal; 
+    font-style: normal; 
+    font-size: 1.25em;
+}
+
+h1 {
+	color: #FFECBF;
+	font-size: 3em;
+	text-align: center;
+	text-shadow: .1em .1em .1em #000000;
+}
+
+div.wrapper {
+	background-color: #96772E;
+	margin: 0 auto;
+	padding: 0 auto;
+	width: 80%;
+	background-color: #FFF5DF;
+}
+
+form {
+	width: 100%;
+	text-align: left;
+}
+
+input {
+	font-size: 1.25em;
+	font-family: 'LibHandDisRegular', sans-serif;
+	margin: .5em 1em;
+	width: 20%;
+	clear: both;
+}
+
+.currencyinput {
+    border: 1px inset #ccc;
+}
+.currencyinput input {
+    border: 0;
+}
+
+fieldset {
+	border: .25em solid black ;
+	padding: 5%;
+}
+
+label {
+	margin: 0;
+	padding: 0;
+	width: 30%;
+	display: inline-block;
+}
+
+#submit_btn {
+	display: block;
+	width: 20%;
+	height: 3em;
+	margin: 2em 40%;
+	padding: 1.5em;
+}
+
+
+
+
+
+
+
+

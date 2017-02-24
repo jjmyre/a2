@@ -1,8 +1,7 @@
 <?php
 require('Form.php');
-require('Tools.php');
 
-#Instaniate from Form class
+#Instaniate Form class
 $form = new DWA\Form($_GET);
 
 if($form->isSubmitted()) {

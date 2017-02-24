@@ -1,4 +1,4 @@
-<?php require('billSplitterLogic.php'); ?>
+<?php require('billsplitterlogic.php'); ?>
 
 <!DOCTYPE html>
 <html>

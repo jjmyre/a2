@@ -1,5 +1,3 @@
-<?php require('billSplitterLogic.php'); ?>
-
 <!DOCTYPE html>
 <html>
 

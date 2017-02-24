@@ -101,7 +101,7 @@ class Form {
                 $test = $this->$rule($value, $parameter);
                 # Test failed
                 if(!$test) {
-                    $errors[] = 'The field '.$fieldName.$this->getErrorMessage($rule, $parameter);
+                    $errors[] = 'The '.$fieldName.' field'.$this->getErrorMessage($rule, $parameter);
                     # Only indicate one error per field
                     break;
                 }

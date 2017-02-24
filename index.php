@@ -34,7 +34,7 @@
     			<input type="checkbox" id="combineTip" name="combineTip" value="combineTip_Yes" <?php if($combineTip) echo "CHECKED"?>/>
 			</fieldset><br/>
 			<fieldset>
-				<label for="round_Yes">Round up?</label>
+				<label for="roundUp">Round up?</label>
             	<input type="checkbox" id="roundUp" name="roundUp" value="round_Yes" <?php if($roundUp) echo "CHECKED"?>/>
             </fieldset>   
 			<input type="submit" name="action" value="Calculate" id="submit_btn"/>

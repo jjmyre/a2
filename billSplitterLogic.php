@@ -1,50 +1,71 @@
 <?php
 require('Form.php');
-include('Tools.php');
+require('Tools.php');
 
-#create object from Form class
+#Instaniate from Form class
 $form = new DWA\Form($_GET);
 
 if($form->isSubmitted()) {
 	
-	#Values/sanitization
+	# Input Values
 	$bill = $form->get('bill','');
-	$bill = $form->sanitize($bill);
 
-	$split = $form->get('split','');
-	$split = $form->sanitize($split);
-	
+	$split = $form->get('split','2');
+
 	$tipPercent = $form->get('tipPercent','0');
 	
 	$combineTip = $form->isChosen('combineTip');
+	
 	$roundUp = $form->isChosen('roundUp');
 
-	$tipAmount = $bill * $tipPercent;
+	# Bill split/tip calculator logic
 
-	# Bill Split/tip calculator logic
+	$tipAmount = number_format(($bill * $tipPercent), 2, '.', '');
+	$billTotal = number_format(($bill + $tipAmount), 2, '.', '');
+	
+
 	if($combineTip) {
-		$eachPersonPays = ($tipAmount + $bill) / $split;
-		return $eachPersonPays;
+		$eachPersonPays = number_format(($billTotal / $split), 2, '.', '');
 	}
-	else if(!$combineTip) {
-		$eachPersonPays = $bill / $split;
-		return $eachPersonPays;  
+	elseif(!$combineTip) {
+		$eachPersonPays = number_format(($bill / $split), 2, '.', '');
 	}
 	
 	if($roundUp) {
-		$eachPersonPays = round($eachPersonPays);
-		return $eachPersonPays;
+		$eachPersonPays = ceil($eachPersonPays);
 	}
-	else if(!$roundUp) {
-		return $eachPersonPays;
-	}
-
+	
 	# Validation
 	$errors = $form->validate([
-		'bill' => 'required|numeric|min:1',
-		'split' => 'required|numeric|min:2'
+		'bill' => 'required',
+		'split' => 'required|numeric'
 		]);
+	return $errors;
+
+}  
+
+# Sanitize Function (instead of including tools.php, I copied it over)
+    
+function sanitize($mixed = null) {
+    if(!is_array($mixed)) {
+        return convertHtmlEntities($mixed);
+    }
+
+    function array_map_recursive($callback, $array) {
+        $func = function ($item) use (&$func, &$callback) {
+            return is_array($item) ? array_map($func, $item) : call_user_func($callback, $item);
+        };
+        return array_map($func, $array);
+    }
+
+    return array_map_recursive('convertHtmlEntities', $mixed);
+}   
+    
+function convertHtmlEntities($mixed) {
+    return htmlentities($mixed, ENT_QUOTES, "UTF-8");
 }
+
+
 
 
 

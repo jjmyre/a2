@@ -1,11 +1,6 @@
 <?php
 namespace DWA;
-# For examples, see:
-# https://github.com/susanBuck/dwa15-php-practice/blob/master/formDemo.php
-# https://github.com/susanBuck/dwa15-php-practice/blob/master/formDemoLogic.php
-#
-# In action:
-# http://php-practice.dwa15.com/formDemo.php
+
 class Form {
     /**
 	* Properties

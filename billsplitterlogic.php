@@ -1,5 +1,5 @@
 <?php
-require('Form.php');
+require('form.php');
 
 #Instaniate Form class
 $form = new DWA\Form($_GET);
@@ -9,7 +9,7 @@ if($form->isSubmitted()) {
 	# Input Values
 	$bill = $form->get('bill','');
 
-	$split = $form->get('split','2');
+	$split = $form->get('split','');
 
 	$tipPercent = $form->get('tipPercent','0');
 	

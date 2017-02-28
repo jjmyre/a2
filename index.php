@@ -6,6 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="images/favicon.png"/>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/glacial-indifference" type="text/css"/>
 	<title>Bill Splitter and Tip Calculator</title>
@@ -15,12 +16,13 @@
 	<h1>Bill Splitter &amp; Tip Calculator</h1>
     <div class="wrapper">
         <form action="index.php" method='GET' >
+        <p><span class='required'>*</span><em>required</em></p>
         	<fieldset id="billInfo">
-				<label for="bill"><span class="required">*Required </span>Bill:</label> 
-            	<input type="text" name="bill" id="bill" pattern='^[0-9]+(\.[0-9][0-9]?)?$' value='<?=sanitize($bill)?>' /><br/>
-
-            	<label for="split"><span class="required">*Required </span>Split how many ways?</label> 
-            	<input type="number" name="split" id="split" min='2' value='<?=sanitize($split)?>' /><br/>
+				<label for="bill"><span class="required">*</span>Bill:</label> 
+            	<span class="currency">$<input type="number" name="bill" pattern='^[0-9]+(?\.[0-9][0-9]?)?$' size='25'/></span><br/>
+            	
+            	<label for="split"><span class="required">*</span>Split how many ways?</label> 
+            	<input type="number" name="split" id="split" min='2' value='<?=sanitize($splitNumber)?>' size='30' /><br/>
     		</fieldset>
     		<fieldset id="tip">
     			<legend>Tip?</legend>
@@ -33,30 +35,30 @@
     			<label for="combineTip">Split tip?</label>
     			<input type="checkbox" id="combineTip" name="combineTip" value="combineTip_Yes" <?php if($combineTip) echo "CHECKED"?>/>
 			</fieldset><br/>
-			<fieldset>
-				<label for="roundUp">Round up?</label>
-            	<input type="checkbox" id="roundUp" name="roundUp" value="round_Yes" <?php if($roundUp) echo "CHECKED"?>/>
-            </fieldset>   
+			
+			<fieldset id='roundUp'>
+				<label for="roundUp">Round up to nearest dollar?</label>
+            	<input type="checkbox" name="roundUp" value="round_Yes" <?php if($roundUp) echo "CHECKED"?>/>
+            </fieldset>  
+            <input type="reset" value="Reset" id="reset_btn"/> 
 			<input type="submit" name="action" value="Calculate" id="submit_btn"/>
 		</form>
-
+	
 		<?php if($errors): ?>
 			<div class="errors">
-				<?php foreach($errors as $error): ?> 
-					<?= $error; ?>
-				<?php endforeach; ?>
+				<ul> 
+					<?php foreach($errors as $error): ?>
+                    	<li><?= $error; ?></li>
+					<?php endforeach; ?>
+				 </ul>
 			</div>	
 		<?php endif; ?>
 		
 		<?php if(!$errors && $form->isSubmitted()): ?>			
 			<div class="results">			
 				<span><?='Tip Amount: $'.sanitize($tipAmount)?></span><br/>
-				<span><?='Bill (including tip): $'.sanitize($billTotal)?></span><br/>
-           		<?php if($combineTip): ?>
-           			<span><?='Each Person Pays (including tip): $'.sanitize($eachPersonPays)?></span>
-           		<?php elseif (!$combineTip): ?>
-           			<span><?='Each Person Pays (not including tip): $'.sanitize($eachPersonPays)?></span>
-           		<?php endif; ?>
+				<span><?='Bill Total With Tip: $'.sanitize($billTotal)?></span><br/>
+                <span><strong><?='Each Person Pays: $'.sanitize($eachPersonPays)?></strong></span>
 			</div>
         <?php endif; ?> 			
     </div>

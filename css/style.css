@@ -1,17 +1,18 @@
 body {
-	background-color: #96772E;
+	background-color: #1d1f1e;
+	background-image: url('../images/background.png');
 	font-family: 'GlacialIndifferenceRegular'; 
     font-weight: normal; 
     font-style: normal;
     font-size: 1.25em;
     margin: 0 auto;
-    min-width: 900px;
-    max-width: 1200px;
+    min-width: 800px;
+    max-width: 960px;
 }
 
 h1 {
 	color: #FFECBF;
-	font-size: 3em;
+	font-size: 2.25em;
 	text-align: center;
 	text-shadow: .1em .1em .1em #000000;
 }
@@ -24,22 +25,19 @@ div.wrapper {
 	width: 70%;
 	background-color: #FFF5DF;
 	box-shadow: 1px 1px 1px 1px black;
+	border-radius: 20px;
 }
 
 legend {
 	text-align: center;
 }
 
-#tip {
-	margin-bottom: 1.5em;
+fieldset#tip, fieldset#roundUp {
+	margin-bottom: 1em;
+	margin-top: 1.5em;
 }
 
-#tip input {
-	width: 1em;
-	margin: 0;
-}
-
-#roundUp input {
+#tip input, #roundUp input {
 	width: 1em;
 	margin: 0;
 }
@@ -55,27 +53,18 @@ input {
 	width: 5em;
 }
 
-#billInfo {
-	margin-bottom;
-}
-
 #billInfo label {
-	margin: 1em 5% 0 0;
+	margin: 1em 5% 1.2em 0;
 	padding: 0;
 	width: 45%;
 	display: inline-block;
-	float: left;
-	clear: left;
 	text-align: right;
 }
 
 #billInfo input {
-	display: inline-block;
 	padding: 0;
 	margin: .5em 15% 0 0;
 	width: 30%;
-	float: left;
-	clear: right;
 	text-align: left;
 }
 
@@ -84,37 +73,67 @@ fieldset {
 	text-align: center;
 }
 
-#submit_btn {
-	display: block;
-	width: 10em;
-	height: 2em;
-	margin: 2em auto;
-	padding: .25em;
+.currency {
+	color: gray;
 }
 
 .required {
-	font-size: .5em;
-	color: gray;
-	display: inline-block;
-	padding-bottom: 1.5em;
+	color: red;
 }
 
-.errors {
-	background-color: red;
-	font-weight: bold;
-	text-align: center;
-	padding: 2em;
+form p {
+	text-align: left;
+	color: gray;
+	font-size: .8em;
+}
+
+/* RESET/SUBMIT BUTTONS */
+
+#submit_btn, #reset_btn {
+	font-size: 1em;
+	height: 2em;
+	margin: 2em auto;
+	padding: .25em;
+	border: 1px solid black;
+}
+
+#reset_btn {
+	width: 5em;
+}
+
+#submit_btn {
+	width: 8em;
+}
+
+/* ERRORS & RESULTS DIVS */
+
+.results, .errors {
+	font-size: 1.2em;
+	margin: 0;
+	line-height: 1.75em;
+	border-radius: 0px 0px 20px 20px;
+	border-top: 1px solid;
 }
 
 .results {
-	background-color: PaleGreen;
-	font-weight: bold;
-	text-align: center;
-	margin: 0;
-	padding: 2em;
-	line-height: 1.5em;
+	background-color:rgba(0, 255, 0, 0.5);
+	width: 60%;
+	text-align: left;
+	padding: 1em 15% 1em 25%;
 }
 
+.errors {
+	background-color:rgba(255, 0, 0, 0.5);
+	width: 80%;
+	padding: 1em 10%;
+	text-align: center;
+}
+
+.errors ul {
+	display: inline;
+	list-style: none;
+	line-height: 1.5em;
+}
 
 
 

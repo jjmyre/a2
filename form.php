@@ -115,6 +115,7 @@ class Form {
         $language = [
             'alphaNumeric' => ' can only contain letters or numbers.',
             'alpha' => ' can only contain letters',
+            'money' => ' can only contain dollar amounts followed by cents',
             'numeric' => ' can only contain numbers',
             'required' => ' is required.',
             'email' => ' is not a valid email address.',
@@ -141,6 +142,10 @@ class Form {
     /**
 	* Returns boolean if given value contains only numbers
 	*/
+    private function money($value) {
+        return preg_match("/^[0-9]+(?:\.[0-9]{1,2})?$/", $value);
+    }
+
     private function numeric($value) {
         return ctype_digit(str_replace(' ','', $value));
     }

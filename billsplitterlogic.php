@@ -14,7 +14,6 @@ if($form->isSubmitted()) {
 	$roundUp = $form->isChosen('roundUp');
 	
 	# Bill split/tip calculator logic
-
 	$tipAmount = number_format(($bill * $tipPercent), 2, '.', '');
 	$billTotal = number_format(($bill + $tipAmount), 2, '.', '');
 	$eachPersonPays;

@@ -15,17 +15,17 @@
 <body>
 	<h1>Bill Splitter &amp; Tip Calculator</h1>
     <div class="wrapper">
-        <form action="index.php" method='GET' >
-        <p><span class='required'>*</span><em>required</em></p>
+        <form action="index.php" method='GET' id="billForm">
+        	<div><span><span class='required'>*</span><em>required</em></span></div>
         	<fieldset id="billInfo">
 				<label for="bill"><span class="required">*</span>Bill:</label> 
-            	<span class="currency">$<input type="number" name="bill" pattern='^[0-9]+(?\.[0-9][0-9]?)?$' size='25'/></span><br/>
+            	<span class="currency">$<input type="text" name="bill" id="bill" pattern='^[0-9]+(?\.[0-9][0-9]?)?$' value='<?=sanitize($bill)?>' required/></span><br/>
             	
             	<label for="split"><span class="required">*</span>Split how many ways?</label> 
-            	<input type="number" name="split" id="split" min='2' value='<?=sanitize($splitNumber)?>' size='30' /><br/>
+            	<input type="number" name="split" id="split" min='2' value='<?=sanitize($splitNumber)?>' required /><br/>
     		</fieldset>
     		<fieldset id="tip">
-    			<legend>Tip?</legend>
+    			<legend>Tip</legend>
     			<label><input type='radio' name='tipPercent' value='0' <?php if($tipPercent == null || $tipPercent == '0') echo 'CHECKED'?>/>0</label>
     			<label><input type='radio' name='tipPercent' value='.10' <?php if($tipPercent == '.10') echo 'CHECKED'?>/>10%</label>
     			<label><input type='radio' name='tipPercent' value='.15' <?php if($tipPercent == '.15') echo 'CHECKED'?>/>15%</label>
@@ -38,8 +38,9 @@
 			
 			<fieldset id='roundUp'>
 				<label for="roundUp">Round up to nearest dollar?</label>
-            	<input type="checkbox" name="roundUp" value="round_Yes" <?php if($roundUp) echo "CHECKED"?>/>
+            	<input type="checkbox" name="roundUp" id="roundUp" value="round_Yes" <?php if($roundUp) echo "CHECKED"?>/>
             </fieldset>  
+
             <input type="reset" value="Reset" id="reset_btn"/> 
 			<input type="submit" name="action" value="Calculate" id="submit_btn"/>
 		</form>
@@ -57,7 +58,7 @@
 		<?php if(!$errors && $form->isSubmitted()): ?>			
 			<div class="results">			
 				<span><?='Tip Amount: $'.sanitize($tipAmount)?></span><br/>
-				<span><?='Bill Total With Tip: $'.sanitize($billTotal)?></span><br/>
+				<span><?='Bill Total: $'.sanitize($billTotal)?></span><br/>
                 <span><strong><?='Each Person Pays: $'.sanitize($eachPersonPays)?></strong></span>
 			</div>
         <?php endif; ?> 			

@@ -5,18 +5,14 @@ require('form.php');
 $form = new DWA\Form($_GET);
 
 if($form->isSubmitted()) {
-	
+
 	# Input Values
 	$bill = $form->get('bill','');
-
 	$splitNumber = $form->get('split','');
-
 	$tipPercent = $form->get('tipPercent','0');
-	
 	$combineTip = $form->isChosen('combineTip');
-	
 	$roundUp = $form->isChosen('roundUp');
-
+	
 	# Bill split/tip calculator logic
 
 	$tipAmount = number_format(($bill * $tipPercent), 2, '.', '');
@@ -40,10 +36,9 @@ if($form->isSubmitted()) {
 		'split' => 'required|numeric|min:1'
 		]);
 	return $errors;
-
 }  
 
-# Sanitize Function (instead of including tools.php, I copied it over)
+# Sanitize Function (instead of including tools.php, I copied the functions over)
     
 function sanitize($mixed = null) {
     if(!is_array($mixed)) {

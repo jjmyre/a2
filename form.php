@@ -115,7 +115,7 @@ class Form {
         $language = [
             'alphaNumeric' => ' can only contain letters or numbers.',
             'alpha' => ' can only contain letters',
-            'money' => ' can only contain dollar amounts followed by cents',
+            'money' => ' can only contain dollars and cents.',
             'numeric' => ' can only contain numbers',
             'required' => ' is required.',
             'email' => ' is not a valid email address.',

@@ -32,9 +32,13 @@ legend {
 	text-align: center;
 }
 
-fieldset#tip, fieldset#roundUp {
-	margin-bottom: 1em;
+fieldset#tip {
+	margin-bottom: .5em;
 	margin-top: 1.5em;
+}
+
+fieldset#roundUp {
+	margin: .5em 0;
 }
 
 #tip input, #roundUp input {
@@ -81,7 +85,7 @@ fieldset {
 	color: red;
 }
 
-form p {
+form div {
 	text-align: left;
 	color: gray;
 	font-size: .8em;
@@ -91,10 +95,11 @@ form p {
 
 #submit_btn, #reset_btn {
 	font-size: 1em;
-	height: 2em;
-	margin: 2em auto;
-	padding: .25em;
-	border: 1px solid black;
+	font-weight: bold;
+	height: 1.5em;
+	margin: 1em auto;
+	border: 2px solid black;
+	background-color: beige;
 }
 
 #reset_btn {

@@ -19,10 +19,10 @@
         	<div><span><span class='required'>*</span><em>required</em></span></div>
         	<fieldset id="billInfo">
 				<label for="bill"><span class="required">*</span>Bill:</label> 
-            	<span class="currency">$<input type="text" name="bill" id="bill" value='<?=sanitize($bill)?>' required/></span><br/>
+            	<span class="currency">$<input type="text" name="bill" id="bill" value='<?=$form->sanitize($bill)?>' required/></span><br/>
             	
             	<label for="split"><span class="required">*</span>Split how many ways?</label> 
-            	<input type="number" name="split" id="split" min='2' value='<?=sanitize($splitNumber)?>' required /><br/>
+            	<input type="number" name="split" id="split" min='2' value='<?=$form->sanitize($splitNumber)?>' required /><br/>
     		</fieldset>
     		<fieldset id="tip">
     			<legend>Tip</legend>
@@ -57,9 +57,9 @@
 		
 		<?php if(!$errors && $form->isSubmitted()): ?>			
 			<div class="results">			
-				<span><?='Tip Amount: $'.sanitize($tipAmount)?></span><br/>
-				<span><?='Bill Total: $'.sanitize($billTotal)?></span><br/>
-                <span><strong><?='Each Person Pays: $'.sanitize($eachPersonPays)?></strong></span>
+				<span><?='Tip Amount: $'.$form->sanitize($tipAmount)?></span><br/>
+				<span><?='Bill Total: $'.$form->sanitize($billTotal)?></span><br/>
+                <span><strong><?='Each Person Pays: $'.$form->sanitize($eachPersonPays)?></strong></span>
 			</div>
         <?php endif; ?> 			
     </div>

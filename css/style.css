@@ -37,11 +37,11 @@ fieldset#tip {
 	margin-top: 1.5em;
 }
 
-fieldset#roundUp {
+fieldset#round {
 	margin: .5em 0;
 }
 
-#tip input, #roundUp input {
+#tip input, #round input {
 	width: 1em;
 	margin: 0;
 }

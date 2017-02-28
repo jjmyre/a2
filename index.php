@@ -19,7 +19,7 @@
         	<div><span><span class='required'>*</span><em>required</em></span></div>
         	<fieldset id="billInfo">
 				<label for="bill"><span class="required">*</span>Bill:</label> 
-            	<span class="currency">$<input type="text" name="bill" id="bill" pattern='^[0-9]+(?\.[0-9][0-9]?)?$' value='<?=sanitize($bill)?>' required/></span><br/>
+            	<span class="currency">$<input type="number" name="bill" id="bill" value='<?=sanitize($bill)?>' required/></span><br/>
             	
             	<label for="split"><span class="required">*</span>Split how many ways?</label> 
             	<input type="number" name="split" id="split" min='2' value='<?=sanitize($splitNumber)?>' required /><br/>
@@ -36,7 +36,7 @@
     			<input type="checkbox" id="combineTip" name="combineTip" value="combineTip_Yes" <?php if($combineTip) echo "CHECKED"?>/>
 			</fieldset><br/>
 			
-			<fieldset id='roundUp'>
+			<fieldset id='round'>
 				<label for="roundUp">Round up to nearest dollar?</label>
             	<input type="checkbox" name="roundUp" id="roundUp" value="round_Yes" <?php if($roundUp) echo "CHECKED"?>/>
             </fieldset>  
